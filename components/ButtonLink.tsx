@@ -3,7 +3,7 @@ import type { LucideIcon } from "lucide-react";
 import type { ReactNode } from "react";
 
 type ButtonLinkProps = {
-  href: string;
+  href: string | null;
   children: ReactNode;
   icon?: LucideIcon;
   variant?: "primary" | "secondary" | "dark";
@@ -26,12 +26,28 @@ export function ButtonLink({
       "bg-brand-navy text-white shadow-premium hover:-translate-y-0.5 hover:bg-[#16284f]"
   };
 
-  const isExternal = href.startsWith("http") || href.includes("_URL");
+  const baseClasses =
+    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-bold transition duration-200";
+
+  if (!href) {
+    return (
+      <span
+        aria-disabled="true"
+        className={`${baseClasses} cursor-not-allowed border border-white/15 bg-white/5 text-white/55 ${className}`}
+        title="Enlace disponible próximamente"
+      >
+        {Icon ? <Icon aria-hidden="true" className="h-5 w-5" /> : null}
+        {children}
+      </span>
+    );
+  }
+
+  const isExternal = href.startsWith("http");
 
   if (isExternal) {
     return (
       <a
-        className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-bold transition duration-200 ${styles[variant]} ${className}`}
+        className={`${baseClasses} ${styles[variant]} ${className}`}
         href={href}
         rel="noreferrer"
         target="_blank"
@@ -44,7 +60,7 @@ export function ButtonLink({
 
   return (
     <Link
-      className={`inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-5 text-sm font-bold transition duration-200 ${styles[variant]} ${className}`}
+      className={`${baseClasses} ${styles[variant]} ${className}`}
       href={href}
     >
       {Icon ? <Icon aria-hidden="true" className="h-5 w-5" /> : null}

@@ -15,7 +15,8 @@ export function ContactPanel({ compact = false }: { compact?: boolean }) {
               Soporte para usuarios, aliados y solicitudes de privacidad.
             </h2>
             <p className="mt-4 text-white/70">
-              Estos datos son editables antes del lanzamiento publico.
+              Encuentra el canal adecuado para resolver consultas sobre viajes,
+              reservas y protección de datos.
             </p>
             <div className="mt-7">
               <ButtonLink href="/contacto" variant="primary">
@@ -30,6 +31,8 @@ export function ContactPanel({ compact = false }: { compact?: boolean }) {
                 className="rounded-lg border border-white/20 bg-white/10 p-5 transition hover:-translate-y-0.5 hover:bg-white/20"
                 href={item.href}
                 key={item.label}
+                rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                target={item.href.startsWith("http") ? "_blank" : undefined}
               >
                 <IconFor label={item.label} />
                 <p className="mt-4 text-sm font-bold uppercase tracking-[0.14em] text-white/50">

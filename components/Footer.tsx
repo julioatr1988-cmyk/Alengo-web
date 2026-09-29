@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { contactItems, legalLinks, navItems } from "@/lib/site";
 
 export function Footer() {
@@ -20,22 +19,6 @@ export function Footer() {
             encomiendas y traslados al aeropuerto con compañías aliadas en
             Ecuador.
           </p>
-          <div className="mt-6 flex gap-3">
-            {[
-              { icon: Instagram, label: "Instagram" },
-              { icon: Facebook, label: "Facebook" },
-              { icon: Linkedin, label: "LinkedIn" }
-            ].map(({ icon: Icon, label }) => (
-              <a
-                aria-label={label}
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/20 text-white/70 transition hover:border-brand-orange hover:text-brand-orange"
-                href="#"
-                key={label}
-              >
-                <Icon className="h-4 w-4" />
-              </a>
-            ))}
-          </div>
         </div>
 
         <div className="grid gap-8 sm:grid-cols-3">
@@ -47,7 +30,13 @@ export function Footer() {
             </h2>
             <div className="mt-4 grid gap-3 text-sm text-white/70">
               {contactItems.slice(0, 3).map((item) => (
-                <a className="transition hover:text-white" href={item.href} key={item.label}>
+                <a
+                  className="transition hover:text-white"
+                  href={item.href}
+                  key={item.label}
+                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                >
                   <span className="block text-white/50">{item.label}</span>
                   {item.value}
                 </a>

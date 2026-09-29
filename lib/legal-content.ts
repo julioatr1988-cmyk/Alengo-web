@@ -109,7 +109,7 @@ export const dataProtectionPolicy = {
     {
       heading: "Responsable del tratamiento",
       paragraphs: [
-        `El responsable del tratamiento es ${LEGAL_COMPANY_NAME}, plataforma asociada al dominio ${site.domain}. La razón social definitiva podrá actualizarse cuando sea formalmente registrada.`,
+        `El responsable del tratamiento es ${LEGAL_COMPANY_NAME}, plataforma asociada al dominio ${site.domain}.`,
         `Canal de contacto para privacidad y protección de datos: ${PRIVACY_EMAIL}.`
       ]
     },

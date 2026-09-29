@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Mail, MapPin, MessageCircle, ShieldCheck } from "lucide-react";
+import { PartnerCta } from "@/components/PartnerCta";
 import { PageHero } from "@/components/PageHero";
 import {
   PRIVACY_EMAIL,
   SUPPORT_EMAIL,
   WHATSAPP_NUMBER,
   WHATSAPP_URL,
+  LOCATION_URL,
   pageTitle,
   site
 } from "@/lib/site";
@@ -39,7 +41,7 @@ export default function ContactPage() {
               label: "WhatsApp",
               value: WHATSAPP_NUMBER,
               href: WHATSAPP_URL,
-              note: "Editar con el número oficial antes de publicar."
+              note: "Consultas para choferes y compañías de transporte aliadas."
             },
             {
               icon: Mail,
@@ -59,7 +61,7 @@ export default function ContactPage() {
               icon: MapPin,
               label: "Ubicación",
               value: site.location,
-              href: "#",
+              href: LOCATION_URL,
               note: "Base operativa principal en Ecuador."
             }
           ].map(({ icon: Icon, label, value, href, note }) => (
@@ -67,6 +69,8 @@ export default function ContactPage() {
               className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-premium"
               href={href}
               key={label}
+              rel={href.startsWith("http") ? "noreferrer" : undefined}
+              target={href.startsWith("http") ? "_blank" : undefined}
             >
               <Icon className="h-8 w-8 text-brand-orange" />
               <p className="mt-6 text-sm font-black uppercase tracking-[0.16em] text-slate-400">
@@ -78,6 +82,7 @@ export default function ContactPage() {
           ))}
         </div>
       </section>
+      <PartnerCta />
     </main>
   );
 }

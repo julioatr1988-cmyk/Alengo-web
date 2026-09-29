@@ -43,7 +43,7 @@ export function AppMockup() {
                   <p className="text-xs font-black uppercase tracking-[0.14em] text-slate-400">
                     Precio ref.
                   </p>
-                  <p className="mt-1 text-3xl font-black tracking-[-0.04em]">USD 18</p>
+                  <p className="mt-1 text-3xl font-black tracking-[-0.04em]">USD 17</p>
                 </div>
                 <div className="rounded-full bg-emerald-50 px-3 py-1 text-xs font-black text-emerald-700">
                   Disponible
@@ -74,8 +74,8 @@ export function AppMockup() {
             {[
               {
                 icon: CalendarCheck,
-                label: "Asiento reservado",
-                value: "Hoy, 08:30"
+                label: "Horarios disponibles",
+                value: "Consulta en la app"
               },
               { icon: MapPinned, label: "Ruta confirmada", value: "Interprovincial" },
               { icon: ShieldCheck, label: "Soporte activo", value: "Viaje seguro" }

@@ -4,10 +4,17 @@ import { ArrowRight, Building2, PackageCheck, Plane, Route, Smartphone } from "l
 import type { ReactNode } from "react";
 import { ContactPanel } from "@/components/ContactPanel";
 import { Hero } from "@/components/Hero";
+import { PartnerCta } from "@/components/PartnerCta";
 import { RouteCard, ServiceCard, TrustBadge } from "@/components/Cards";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ButtonLink } from "@/components/ButtonLink";
-import { howItWorks, routes, services, trustBadges } from "@/lib/site";
+import {
+  ROUTE_PRICING_NOTE,
+  howItWorks,
+  routes,
+  services,
+  trustBadges
+} from "@/lib/site";
 
 export default function HomePage() {
   return (
@@ -81,14 +88,13 @@ export default function HomePage() {
               Ver rutas
             </ButtonLink>
           </div>
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {routes.map((route) => (
               <RouteCard key={`${route.from}-${route.to}`} {...route} />
             ))}
           </div>
           <p className="mt-6 text-sm leading-6 text-white/60">
-            Los precios son valores referenciales y pueden variar según ruta,
-            horario, disponibilidad o compañía de transporte aliada.
+            {ROUTE_PRICING_NOTE}
           </p>
         </div>
       </section>
@@ -100,7 +106,7 @@ export default function HomePage() {
             icon={<PackageCheck className="h-7 w-7" />}
             image="/assets/mockup-folder.jpg"
             title="Encomiendas entre ciudades"
-            text="Coordina envios con informacion clara de remitente, destinatario, ruta y soporte operativo."
+            text="Coordina envíos con información clara de remitente, destinatario, ruta y soporte operativo."
           />
           <FeatureTile
             href="/traslados-aeropuerto"
@@ -114,9 +120,9 @@ export default function HomePage() {
 
       <section className="bg-[#f6f7f9] py-20 sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <SectionHeader
-            align="center"
-            eyebrow="Como funciona"
+            <SectionHeader
+              align="center"
+              eyebrow="Cómo funciona"
             title="Reserva en tres pasos"
           />
           <div className="mt-12 grid gap-5 md:grid-cols-3">
@@ -151,6 +157,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      <PartnerCta />
       <ContactPanel />
     </main>
   );

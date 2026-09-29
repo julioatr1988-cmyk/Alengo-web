@@ -44,17 +44,17 @@ export function Hero() {
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
             <ButtonLink href={GOOGLE_PLAY_URL} icon={Play} variant="primary">
-              Download on Google Play
+              Google Play · Próximamente
             </ButtonLink>
             <ButtonLink href={APPLE_STORE_URL} icon={Apple} variant="secondary">
-              Download on App Store
+              App Store · Próximamente
             </ButtonLink>
           </div>
 
           <div className="mt-10 grid max-w-2xl grid-cols-3 border-y border-white/10 py-5">
             {[
-              ["3", "rutas clave"],
-              ["24/7", "solicitudes"],
+              ["4", "rutas principales"],
+              ["App", "reservas digitales"],
               ["EC", "operación local"]
             ].map(([value, label]) => (
               <div className="border-r border-white/10 px-4 first:pl-0 last:border-r-0" key={label}>
@@ -90,7 +90,9 @@ export function Hero() {
               <Clock3 className="h-5 w-5 text-brand-orange" />
               <div>
                 <p className="text-sm font-black">Quito</p>
-                <p className="text-xs text-white/50">Salida referencial 08:30</p>
+                <p className="text-xs text-white/50">
+                  Consulta horarios disponibles en la app
+                </p>
               </div>
             </div>
           </div>

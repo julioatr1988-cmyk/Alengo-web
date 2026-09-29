@@ -1,18 +1,12 @@
-
 import type { Metadata, Viewport } from "next";
 import Script from "next/script";
-import { Inter } from "next/font/google";
 import type { ReactNode } from "react";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter"
-});
+const googleAnalyticsId = "G-FSPZN915CB";
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.domain),
@@ -71,30 +65,19 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="es-EC">
-      <html lang="es-EC">
-
-  <Script
-    src="https://www.googletagmanager.com/gtag/js?id=G-FSPZN915CB"
-    strategy="afterInteractive"
-  />
-
-  <Script id="google-analytics" strategy="afterInteractive">
-    {`
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-FSPZN915CB');
-    `}
-  </Script>
-
-  <body className={`${inter.variable} min-h-screen antialiased`}>
-    <Navbar />
-    {children}
-    <Footer />
-  </body>
-
-</html>
-      <body className={`${inter.variable} min-h-screen antialiased`}>
+      <body className="min-h-screen antialiased">
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticsId}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${googleAnalyticsId}');
+          `}
+        </Script>
         <Navbar />
         {children}
         <Footer />

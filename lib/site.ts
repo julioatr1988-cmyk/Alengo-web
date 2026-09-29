@@ -13,14 +13,21 @@ import {
   TicketCheck
 } from "lucide-react";
 
-// Editable placeholders for launch operations.
-export const GOOGLE_PLAY_URL = "GOOGLE_PLAY_URL";
-export const APPLE_STORE_URL = "APPLE_STORE_URL";
-export const WHATSAPP_NUMBER = "+593 XXX XXX XXX";
-export const WHATSAPP_URL = "https://wa.me/593XXXXXXXXX";
-export const SUPPORT_EMAIL = "soporte@alengoapp.com";
+// Store links remain disabled until their official listings are available.
+export const GOOGLE_PLAY_URL: string | null = null;
+export const APPLE_STORE_URL: string | null = null;
+export const WHATSAPP_NUMBER = "0939818125";
+export const WHATSAPP_URL = "https://wa.me/593939818125";
+export const DRIVER_WHATSAPP_MESSAGE =
+  "Hola ALEN GO, quiero información para registrarme como chofer o empresa aliada.";
+export const DRIVER_WHATSAPP_URL = `${WHATSAPP_URL}?text=${encodeURIComponent(
+  DRIVER_WHATSAPP_MESSAGE
+)}`;
+export const SUPPORT_EMAIL = "julioatr1988@gmail.com";
 export const PRIVACY_EMAIL = "privacidad@alengoapp.com";
-export const LEGAL_COMPANY_NAME = "ALEN GO / Razón social pendiente";
+export const LEGAL_COMPANY_NAME = "ALEN GO";
+export const LOCATION_URL =
+  "https://www.google.com/maps/search/?api=1&query=Santo+Domingo+de+los+Tsachilas%2C+Ecuador";
 
 export const site = {
   name: "ALEN GO",
@@ -77,17 +84,20 @@ export const services = [
   },
   {
     icon: Clock3,
-    title: "Reservas rapidas",
+    title: "Reservas rápidas",
     text: "Una experiencia simple para confirmar tus viajes en pocos pasos."
   }
 ];
 
-// Editable reference prices for public route cards.
 export const routes = [
-  { from: "Santo Domingo", to: "Quito", price: "USD 18" },
+  { from: "Santo Domingo", to: "Quito", price: "USD 17" },
+  { from: "Santo Domingo", to: "Los Valles", price: "USD 22" },
   { from: "Santo Domingo", to: "Manta", price: "USD 25" },
   { from: "Santo Domingo", to: "Guayaquil", price: "USD 30" }
 ];
+
+export const ROUTE_PRICING_NOTE =
+  "Tarifas base. Determinados sectores, puntos de recogida o destinos pueden generar un recargo adicional. El valor correspondiente se mostrará antes de confirmar la reserva.";
 
 export const howItWorks = [
   {
@@ -118,7 +128,7 @@ export const contactItems = [
   { label: "WhatsApp", value: WHATSAPP_NUMBER, href: WHATSAPP_URL },
   { label: "Soporte", value: SUPPORT_EMAIL, href: `mailto:${SUPPORT_EMAIL}` },
   { label: "Privacidad", value: PRIVACY_EMAIL, href: `mailto:${PRIVACY_EMAIL}` },
-  { label: "Ubicación", value: site.location, href: "/contacto" }
+  { label: "Ubicación", value: site.location, href: LOCATION_URL }
 ];
 
 export function pageTitle(title: string) {

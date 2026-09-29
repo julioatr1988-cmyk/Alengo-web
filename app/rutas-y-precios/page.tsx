@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import { RouteCard } from "@/components/Cards";
 import { ContactPanel } from "@/components/ContactPanel";
 import { PageHero } from "@/components/PageHero";
-import { routes, pageTitle } from "@/lib/site";
+import { ROUTE_PRICING_NOTE, routes, pageTitle } from "@/lib/site";
 
 export const metadata: Metadata = {
   title: pageTitle("Rutas y precios"),
   description:
-    "Consulta rutas y precios referenciales de ALEN GO desde Santo Domingo hacia Quito, Manta y Guayaquil.",
+    "Consulta rutas y precios referenciales de ALEN GO desde Santo Domingo hacia Quito, Los Valles, Manta y Guayaquil.",
   alternates: {
     canonical: "/rutas-y-precios"
   },
@@ -27,14 +27,13 @@ export default function RoutesPage() {
       />
       <section className="bg-brand-navy py-20 text-white sm:py-24">
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-          <div className="grid gap-5 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
             {routes.map((route) => (
               <RouteCard key={`${route.from}-${route.to}`} {...route} />
             ))}
           </div>
           <p className="mt-7 rounded-lg border border-white/20 bg-white/10 p-5 text-sm leading-6 text-white/70">
-            Prices are reference values and may vary depending on route,
-            schedule, availability or allied transportation company.
+            {ROUTE_PRICING_NOTE}
           </p>
         </div>
       </section>
