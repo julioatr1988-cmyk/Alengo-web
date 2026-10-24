@@ -48,6 +48,7 @@ export const navItems = [
 ];
 
 export const legalLinks = [
+  { label: "Términos de Uso", href: "/terminos-de-uso" },
   { label: "Política de privacidad", href: "/politica-de-privacidad" },
   {
     label: "Tratamiento de datos",

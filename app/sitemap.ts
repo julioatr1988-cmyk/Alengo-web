@@ -7,6 +7,7 @@ const routes = [
   "/rutas-y-precios",
   "/encomiendas",
   "/traslados-aeropuerto",
+  "/terminos-de-uso",
   "/politica-de-privacidad",
   "/politica-de-tratamiento-de-datos",
   "/proteccion-de-datos",
@@ -16,7 +17,7 @@ const routes = [
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${site.domain}${route}`,
-    lastModified: new Date("2026-05-25"),
+    lastModified: new Date(route === "/terminos-de-uso" ? "2026-10-24" : "2026-05-25"),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.75
   }));
