@@ -14,10 +14,16 @@ const routes = [
   "/contacto"
 ];
 
+const lastModifiedByRoute: Record<string, string> = {
+  "": "2026-11-21",
+  "/politica-de-privacidad": "2026-11-21",
+  "/terminos-de-uso": "2026-10-24"
+};
+
 export default function sitemap(): MetadataRoute.Sitemap {
   return routes.map((route) => ({
     url: `${site.domain}${route}`,
-    lastModified: new Date(route === "/terminos-de-uso" ? "2026-10-24" : "2026-05-25"),
+    lastModified: new Date(lastModifiedByRoute[route] ?? "2026-05-25"),
     changeFrequency: route === "" ? "weekly" : "monthly",
     priority: route === "" ? 1 : 0.75
   }));

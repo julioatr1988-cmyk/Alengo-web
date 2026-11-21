@@ -1,8 +1,7 @@
 import Image from "next/image";
-import { Apple, ArrowRight, Clock3, MapPinned, Play, ShieldCheck, Star } from "lucide-react";
-import { APPLE_STORE_URL, GOOGLE_PLAY_URL } from "@/lib/site";
+import { ArrowRight, Clock3, MapPinned, ShieldCheck, Star } from "lucide-react";
+import { AppDownloadButtons } from "@/components/AppDownloadButtons";
 import { AppMockup } from "@/components/AppMockup";
-import { ButtonLink } from "@/components/ButtonLink";
 
 export function Hero() {
   return (
@@ -35,20 +34,37 @@ export function Hero() {
             <ShieldCheck className="h-4 w-4 text-brand-orange" />
             Plataforma de movilidad para Ecuador
           </div>
-          <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[0.92] tracking-[-0.03em] sm:text-6xl lg:text-7xl">
-            Reserva tu asiento desde ALEN GO
+          <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[0.94] sm:text-6xl lg:text-7xl">
+            Tu viaje comienza en ALEN GO
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">
-            Viajes puerta a puerta rápidos, cómodos y seguros con reservas,
-            encomiendas y transfers gestionados desde una experiencia digital.
+            Reserva tu asiento, elige tu ruta y coordina tu viaje puerta a puerta desde tu celular.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-            <ButtonLink href={GOOGLE_PLAY_URL} icon={Play} variant="primary">
-              Google Play · Próximamente
-            </ButtonLink>
-            <ButtonLink href={APPLE_STORE_URL} icon={Apple} variant="secondary">
-              App Store · Próximamente
-            </ButtonLink>
+          <div className="mt-9 grid max-w-3xl gap-3 sm:grid-cols-2">
+            <div className="rounded-lg bg-brand-orange p-4 text-brand-navy shadow-glow sm:p-5">
+              <p className="text-xs font-black uppercase tracking-[0.14em] opacity-60">
+                Para pasajeros
+              </p>
+              <h2 className="mt-1 text-xl font-black">Descargar ALEN GO</h2>
+              <AppDownloadButtons
+                appType="passenger"
+                className="mt-4"
+                location="hero"
+                tone="dark"
+              />
+            </div>
+            <div className="rounded-lg border border-white/20 bg-white/[0.08] p-4 shadow-2xl backdrop-blur sm:p-5">
+              <p className="text-xs font-black uppercase tracking-[0.14em] text-brand-orange">
+                Para conductores
+              </p>
+              <h2 className="mt-1 text-xl font-black text-white">Descargar ALEN GO Chofer</h2>
+              <AppDownloadButtons
+                appType="driver"
+                className="mt-4"
+                location="hero"
+                tone="light"
+              />
+            </div>
           </div>
 
           <div className="mt-10 grid max-w-2xl grid-cols-3 border-y border-white/10 py-5">

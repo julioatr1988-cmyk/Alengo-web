@@ -6,7 +6,7 @@ import { pageTitle } from "@/lib/site";
 export const metadata: Metadata = {
   title: pageTitle("Política de privacidad"),
   description:
-    "Política de privacidad de ALEN GO para usuarios, reservas, encomiendas, ubicación y protección de datos.",
+    "Política de privacidad de ALEN GO para usuarios, verificación de identidad, reservas, ubicación y protección de datos.",
   alternates: {
     canonical: "/politica-de-privacidad"
   },

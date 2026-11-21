@@ -1,21 +1,25 @@
 import {
   BadgeCheck,
   BriefcaseBusiness,
-  CalendarCheck,
-  CarFront,
   Clock3,
   Headphones,
   MapPinned,
   PackageCheck,
   Plane,
   ShieldCheck,
-  Smartphone,
   TicketCheck
 } from "lucide-react";
 
-// Store links remain disabled until their official listings are available.
-export const GOOGLE_PLAY_URL: string | null = null;
-export const APPLE_STORE_URL: string | null = null;
+export const appDownloadLinks = {
+  passenger: {
+    android: "https://play.google.com/store/apps/details?id=com.alengo.app.cliente",
+    ios: "https://apps.apple.com/ec/app/alengo/id6790227179"
+  },
+  driver: {
+    android: "https://play.google.com/store/apps/details?id=com.alengo.app.chofer",
+    ios: "https://apps.apple.com/ec/app/alengo-chofer/id6790226774"
+  }
+} as const;
 export const WHATSAPP_NUMBER = "0939818125";
 export const WHATSAPP_URL = "https://wa.me/593939818125";
 export const DRIVER_WHATSAPP_MESSAGE =
@@ -32,9 +36,9 @@ export const LOCATION_URL =
 export const site = {
   name: "ALEN GO",
   domain: "https://alengoapp.com",
-  title: "ALEN GO - Transporte Puerta a Puerta en Ecuador",
+  title: "ALEN GO | App de transporte puerta a puerta en Ecuador",
   description:
-    "Reserva viajes puerta a puerta, encomiendas y transfers al aeropuerto desde la app ALEN GO.",
+    "Descarga ALEN GO para reservar viajes, seleccionar tu asiento, gestionar encomiendas y viajar puerta a puerta. Aplicaciones disponibles para pasajeros y choferes.",
   location: "Santo Domingo de los Tsáchilas, Ecuador"
 };
 
@@ -49,12 +53,12 @@ export const navItems = [
 
 export const legalLinks = [
   { label: "Términos de Uso", href: "/terminos-de-uso" },
-  { label: "Política de privacidad", href: "/politica-de-privacidad" },
+  { label: "Política de Privacidad", href: "/politica-de-privacidad" },
   {
-    label: "Tratamiento de datos",
+    label: "Política de Manejo de Datos",
     href: "/politica-de-tratamiento-de-datos"
   },
-  { label: "Protección de datos", href: "/proteccion-de-datos" }
+  { label: "Protección de Datos", href: "/proteccion-de-datos" }
 ];
 
 export const services = [
@@ -99,24 +103,6 @@ export const routes = [
 
 export const ROUTE_PRICING_NOTE =
   "Tarifas base. Determinados sectores, puntos de recogida o destinos pueden generar un recargo adicional. El valor correspondiente se mostrará antes de confirmar la reserva.";
-
-export const howItWorks = [
-  {
-    icon: Smartphone,
-    title: "Descarga la app",
-    text: "Instala ALEN GO y mantente listo para reservar cuando lo necesites."
-  },
-  {
-    icon: CalendarCheck,
-    title: "Reserva tu asiento",
-    text: "Selecciona ruta, horario, datos de pasajero y punto de recogida."
-  },
-  {
-    icon: CarFront,
-    title: "Viaja seguro",
-    text: "Recibe coordinación del servicio y viaja con operadores aliados."
-  }
-];
 
 export const trustBadges = [
   { icon: BadgeCheck, label: "Conductores aliados" },

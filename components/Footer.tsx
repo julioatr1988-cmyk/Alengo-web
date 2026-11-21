@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
+import { AppDownloadButtons } from "@/components/AppDownloadButtons";
 import { contactItems, legalLinks, navItems } from "@/lib/site";
 
 export function Footer() {
   return (
     <footer className="bg-brand-navy text-white">
-      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[1.2fr_2fr] lg:px-8">
+      <div className="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-6 lg:grid-cols-[0.85fr_2.15fr] lg:px-8">
         <div>
           <Image
             alt="ALEN GO"
@@ -21,9 +22,34 @@ export function Footer() {
           </p>
         </div>
 
-        <div className="grid gap-8 sm:grid-cols-3">
+        <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
           <FooterGroup title="Navegacion" items={navItems} />
           <FooterGroup title="Legal" items={legalLinks} />
+          <div>
+            <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-brand-orange">
+              Descarga ALEN GO
+            </h2>
+            <p className="mt-4 text-xs font-black uppercase tracking-[0.12em] text-white/45">
+              Pasajeros
+            </p>
+            <AppDownloadButtons
+              appType="passenger"
+              className="mt-2"
+              compact
+              location="footer"
+              tone="footer"
+            />
+            <p className="mt-5 text-xs font-black uppercase tracking-[0.12em] text-white/45">
+              Choferes
+            </p>
+            <AppDownloadButtons
+              appType="driver"
+              className="mt-2"
+              compact
+              location="footer"
+              tone="footer"
+            />
+          </div>
           <div>
             <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-brand-orange">
               Contacto

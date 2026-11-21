@@ -41,6 +41,20 @@ export const privacyPolicy = {
       ]
     },
     {
+      heading: "Verificación de identidad",
+      paragraphs: [
+        "Cuando sea necesario para habilitar o proteger determinadas funciones de la plataforma, ALEN GO puede solicitar un documento de identificación o cédula, una fotografía del documento, una selfie o fotografía de verificación y los datos necesarios para comprobar la identidad del titular.",
+        "Esta información puede utilizarse para validar la identidad, reducir el riesgo de suplantación, prevenir fraude, reforzar la seguridad de pasajeros y conductores y atender procesos de revisión de cuentas.",
+        "La solicitud de fotografías para verificación no implica por sí sola el uso de reconocimiento biométrico. ALEN GO conservará esta información durante el tiempo necesario para las finalidades informadas y las obligaciones legales aplicables, sin establecer en esta política un plazo que no haya sido implementado."
+      ],
+      links: [
+        {
+          label: "Conocer la Política de Protección de Datos",
+          href: "/proteccion-de-datos"
+        }
+      ]
+    },
+    {
       heading: "Uso de la información",
       paragraphs: [
         "Utilizamos la información para gestionar reservas, asignar viajes, coordinar encomiendas, confirmar traslados al aeropuerto, brindar soporte técnico, mejorar el servicio, prevenir abusos, proteger a usuarios y cumplir obligaciones legales.",
@@ -76,7 +90,7 @@ export const privacyPolicy = {
       ]
     }
   ] satisfies LegalSection[],
-  updated: "Última actualización: mayo de 2026"
+  updated: "Última actualización: noviembre de 2026"
 };
 
 export const dataHandlingPolicy = {

@@ -2,15 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Building2, PackageCheck, Plane, Route, Smartphone } from "lucide-react";
 import type { ReactNode } from "react";
+import { AppDownloadSection } from "@/components/AppDownloadSection";
 import { ContactPanel } from "@/components/ContactPanel";
+import { GettingStartedSection } from "@/components/GettingStartedSection";
 import { Hero } from "@/components/Hero";
+import { IdentitySecuritySection } from "@/components/IdentitySecuritySection";
 import { PartnerCta } from "@/components/PartnerCta";
 import { RouteCard, ServiceCard, TrustBadge } from "@/components/Cards";
 import { SectionHeader } from "@/components/SectionHeader";
 import { ButtonLink } from "@/components/ButtonLink";
 import {
   ROUTE_PRICING_NOTE,
-  howItWorks,
   routes,
   services,
   trustBadges
@@ -20,6 +22,7 @@ export default function HomePage() {
   return (
     <main>
       <Hero />
+      <AppDownloadSection />
 
       <section className="bg-white py-20 sm:py-24">
         <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
@@ -74,6 +77,8 @@ export default function HomePage() {
         </div>
       </section>
 
+      <IdentitySecuritySection />
+
       <section className="relative overflow-hidden bg-brand-navy py-20 text-white sm:py-24">
         <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] bg-[size:64px_64px] opacity-35" />
         <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
@@ -118,36 +123,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="bg-[#f6f7f9] py-20 sm:py-24">
-        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
-            <SectionHeader
-              align="center"
-              eyebrow="Cómo funciona"
-            title="Reserva en tres pasos"
-          />
-          <div className="mt-12 grid gap-5 md:grid-cols-3">
-            {howItWorks.map((step, index) => {
-              const StepIcon = step.icon;
-
-              return (
-                <article
-                  className="rounded-lg bg-white p-6 shadow-sm ring-1 ring-slate-200 transition hover:-translate-y-1 hover:shadow-premium"
-                  key={step.title}
-                >
-                  <div className="flex items-center justify-between">
-                    <StepIcon className="h-8 w-8 text-brand-orange" />
-                    <span className="text-5xl font-black text-slate-100">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <h3 className="mt-8 text-xl font-black text-brand-navy">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-slate-600">{step.text}</p>
-                </article>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+      <GettingStartedSection />
 
       <section className="bg-[#081226] py-14 text-white">
         <div className="mx-auto grid max-w-7xl gap-4 px-5 sm:grid-cols-2 sm:px-6 lg:grid-cols-4 lg:px-8">
