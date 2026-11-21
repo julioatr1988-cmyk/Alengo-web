@@ -27,7 +27,7 @@ export function Footer() {
           <FooterGroup title="Legal" items={legalLinks} />
           <div>
             <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-brand-orange">
-              Descarga ALEN GO
+              Apps oficiales
             </h2>
             <p className="mt-4 text-xs font-black uppercase tracking-[0.12em] text-white/45">
               Pasajeros

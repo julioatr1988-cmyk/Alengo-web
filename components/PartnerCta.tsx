@@ -25,19 +25,22 @@ export function PartnerCta() {
               </p>
             </div>
 
-            <div className="rounded-lg border border-white/15 bg-white/[0.06] p-5 backdrop-blur">
+            <div className="border-t border-white/15 pt-8 lg:border-l lg:border-t-0 lg:pl-10 lg:pt-0">
               <p className="text-xs font-black uppercase tracking-[0.14em] text-brand-orange">
                 App para conductores
               </p>
-              <h3 className="mt-1 text-xl font-black">Descargar ALEN GO Chofer</h3>
+              <h3 className="mt-2 text-xl font-black">Descarga la app para choferes</h3>
+              <p className="mt-2 text-sm leading-6 text-white/60">
+                Lleva solicitudes, pasajeros y viajes asignados desde tu celular.
+              </p>
               <AppDownloadButtons
                 appType="driver"
-                className="mt-4 sm:grid-cols-2 lg:grid-cols-1"
+                className="mt-4"
                 location="driver_cta"
-                tone="light"
+                tone="outline"
               />
               <ButtonLink
-                className="mt-3 w-full whitespace-nowrap"
+                className="mt-4 w-full max-w-sm whitespace-nowrap"
                 href={DRIVER_WHATSAPP_URL}
                 icon={MessageCircle}
                 variant="primary"

@@ -21,23 +21,28 @@ export function AppDownloadButtons({
   className = ""
 }: AppDownloadButtonsProps) {
   const links = appDownloadLinks[appType];
+  const appName = appType === "passenger" ? "ALEN GO para pasajeros" : "ALEN GO Chofer";
 
   return (
-    <div className={`grid gap-2 ${className}`}>
-      <StoreDownloadLink
-        appType={appType}
-        compact={compact}
-        href={links.android}
-        location={location}
-        platform="android"
-        tone={tone}
-      />
+    <div
+      aria-label={`Descargar ${appName}`}
+      className={`flex flex-wrap items-center gap-x-2 gap-y-1 ${className}`}
+      role="group"
+    >
       <StoreDownloadLink
         appType={appType}
         compact={compact}
         href={links.ios}
         location={location}
         platform="ios"
+        tone={tone}
+      />
+      <StoreDownloadLink
+        appType={appType}
+        compact={compact}
+        href={links.android}
+        location={location}
+        platform="android"
         tone={tone}
       />
     </div>

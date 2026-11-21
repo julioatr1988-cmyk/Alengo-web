@@ -1,6 +1,6 @@
 "use client";
 
-import { Apple, Play } from "lucide-react";
+/* eslint-disable @next/next/no-img-element -- Official store artwork must remain unmodified. */
 
 export type DownloadAppType = "passenger" | "driver";
 export type DownloadPlatform = "android" | "ios";
@@ -27,9 +27,21 @@ declare global {
   }
 }
 
-const storeCopy = {
-  android: { kicker: "Disponible en", name: "Google Play", icon: Play },
-  ios: { kicker: "Descárgalo en", name: "App Store", icon: Apple }
+const storeArtwork = {
+  android: {
+    alt: "Disponible en Google Play",
+    height: 250,
+    name: "Google Play",
+    src: "https://play.google.com/intl/en_us/badges/static/images/badges/es_badge_web_generic.png",
+    width: 646
+  },
+  ios: {
+    alt: "Descargar en el App Store",
+    height: 40,
+    name: "App Store",
+    src: "https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg",
+    width: 135
+  }
 } as const;
 
 export function StoreDownloadLink({
@@ -41,14 +53,13 @@ export function StoreDownloadLink({
   compact = false,
   className = ""
 }: StoreDownloadLinkProps) {
-  const store = storeCopy[platform];
-  const Icon = store.icon;
+  const store = storeArtwork[platform];
   const appName = appType === "passenger" ? "ALEN GO" : "ALEN GO Chofer";
   const tones = {
-    dark: "border-[#050914] bg-[#050914] text-white hover:bg-[#131b2d]",
-    light: "border-slate-200 bg-white text-brand-navy hover:border-brand-orange",
-    outline: "border-white/20 bg-white/10 text-white hover:bg-white/20",
-    footer: "border-white/15 bg-white/[0.06] text-white hover:border-brand-orange/70 hover:bg-white/10"
+    dark: "hover:bg-black/[0.04]",
+    light: "hover:bg-slate-100",
+    outline: "hover:bg-white/[0.08]",
+    footer: "hover:bg-white/[0.08]"
   };
 
   function trackDownload() {
@@ -70,8 +81,8 @@ export function StoreDownloadLink({
   return (
     <a
       aria-label={`${store.name}: descargar ${appName}`}
-      className={`inline-flex items-center justify-center gap-3 rounded-lg border font-bold transition duration-200 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange ${
-        compact ? "min-h-11 px-3 py-2" : "min-h-14 px-4 py-2.5"
+      className={`inline-flex min-h-11 shrink-0 items-center justify-center rounded-md px-2 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange ${
+        compact ? "w-[9.5rem]" : "w-40"
       } ${tones[tone]} ${className}`}
       data-app-type={appType}
       data-download-location={location}
@@ -81,15 +92,17 @@ export function StoreDownloadLink({
       rel="noopener noreferrer"
       target="_blank"
     >
-      <Icon aria-hidden="true" className={compact ? "h-5 w-5" : "h-7 w-7"} />
-      <span className="min-w-0 text-left leading-none">
-        <span className="block text-[10px] font-semibold uppercase tracking-[0.08em] opacity-65">
-          {store.kicker}
-        </span>
-        <span className={`mt-1 block whitespace-nowrap ${compact ? "text-xs" : "text-sm"}`}>
-          {store.name}
-        </span>
-      </span>
+      <img
+        alt={store.alt}
+        className={`w-auto max-w-none ${
+          platform === "android" ? (compact ? "h-[3.25rem]" : "h-[3.375rem]") : "h-10"
+        }`}
+        decoding="async"
+        height={store.height}
+        loading={location === "hero" ? "eager" : "lazy"}
+        src={store.src}
+        width={store.width}
+      />
     </a>
   );
 }

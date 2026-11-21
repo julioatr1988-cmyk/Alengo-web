@@ -18,9 +18,9 @@ import { SectionHeader } from "@/components/SectionHeader";
 const apps = [
   {
     id: "descargas-pasajeros",
-    label: "Para pasajeros",
-    title: "ALEN GO",
-    text: "Reserva tus viajes de forma sencilla y lleva el control desde tu celular.",
+    label: "Pasajeros",
+    title: "Descarga la app para pasajeros",
+    text: "Reserva tu asiento, elige tu ruta y coordina tu viaje puerta a puerta desde tu celular.",
     appType: "passenger" as const,
     icon: UserRound,
     qr: "/assets/qr-passenger.svg",
@@ -29,27 +29,23 @@ const apps = [
       "Reserva tu asiento.",
       "Consulta rutas y horarios disponibles.",
       "Coordina recogida puerta a puerta.",
-      "Gestiona encomiendas.",
-      "Consulta información de tu viaje.",
-      "Accede al soporte de ALEN GO."
+      "Gestiona encomiendas."
     ]
   },
   {
     id: "descargas-choferes",
-    label: "Para choferes",
-    title: "ALEN GO Chofer",
-    text: "Gestiona solicitudes, viajes y tu operación desde una aplicación diseñada para conductores aliados.",
+    label: "Choferes",
+    title: "Descarga la app para choferes",
+    text: "Administra solicitudes, pasajeros y operación de viajes desde la app ALEN GO Chofer.",
     appType: "driver" as const,
     icon: CarFront,
     qr: "/assets/qr-driver.svg",
     qrLabel: "Choferes",
     benefits: [
-      "Revisa solicitudes de viajes.",
-      "Gestiona viajes asignados.",
+      "Administra solicitudes de viaje.",
+      "Organiza pasajeros y viajes asignados.",
       "Consulta encomiendas.",
-      "Recibe notificaciones.",
-      "Mantén actualizada tu información.",
-      "Comunícate con la plataforma."
+      "Recibe notificaciones operativas."
     ]
   }
 ];
@@ -60,9 +56,9 @@ export function AppDownloadSection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <SectionHeader
           align="center"
-          eyebrow="Dos aplicaciones, una red"
-          text="ALEN GO conecta pasajeros y conductores mediante aplicaciones diseñadas para cada experiencia."
-          title="Elige la aplicación que necesitas"
+          eyebrow="Descargas oficiales"
+          text="Dos aplicaciones creadas para experiencias distintas, conectadas por la misma red de movilidad."
+          title="Elige tu app de ALEN GO"
         />
 
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
@@ -70,6 +66,21 @@ export function AppDownloadSection() {
             <AppCard key={app.id} {...app} />
           ))}
         </div>
+
+        <aside className="mt-8 grid gap-5 border-y border-brand-navy/10 bg-white px-6 py-6 shadow-sm sm:grid-cols-[auto_1fr] sm:items-center sm:px-8">
+          <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-brand-orange text-brand-navy">
+            <ShieldCheck aria-hidden="true" className="h-6 w-6" />
+          </div>
+          <div>
+            <h3 className="text-lg font-black text-brand-navy">
+              Verificación para mayor seguridad
+            </h3>
+            <p className="mt-1 max-w-5xl text-sm leading-6 text-slate-600">
+              Por seguridad de pasajeros y choferes, la app puede solicitar cédula y selfie con la
+              cédula para validar identidad y ayudar a prevenir fraudes.
+            </p>
+          </div>
+        </aside>
       </div>
     </section>
   );
@@ -90,33 +101,35 @@ function AppCard({
 
   return (
     <article
-      className={`scroll-mt-24 overflow-hidden rounded-lg border bg-white shadow-sm ${
+      className={`scroll-mt-24 overflow-hidden rounded-lg border bg-white shadow-premium ${
         isPassenger ? "border-brand-orange/45" : "border-brand-navy/20"
       }`}
       id={id}
     >
-      <div
-        className={`flex items-center justify-between border-b px-6 py-4 ${
-          isPassenger
-            ? "border-brand-orange/25 bg-brand-orange/10"
-            : "border-brand-navy/10 bg-brand-navy text-white"
-        }`}
-      >
-        <span className="text-sm font-black uppercase tracking-[0.16em]">{label}</span>
-        <span
-          className={`flex h-11 w-11 items-center justify-center rounded-lg ${
-            isPassenger ? "bg-brand-orange text-brand-navy" : "bg-white/10 text-brand-orange"
-          }`}
-        >
-          <Icon aria-hidden="true" className="h-6 w-6" />
-        </span>
-      </div>
-
-      <div className="grid gap-8 p-6 sm:p-8 xl:grid-cols-[minmax(0,1fr)_12rem]">
-        <div className="min-w-0">
-          <h3 className="text-3xl font-black text-brand-navy">{title}</h3>
+      <div className={`h-1.5 ${isPassenger ? "bg-brand-orange" : "bg-brand-navy"}`} />
+      <div className="grid min-h-full md:grid-cols-[minmax(0,1fr)_13rem] lg:grid-cols-1 xl:grid-cols-[minmax(0,1fr)_13rem]">
+        <div className="flex min-w-0 flex-col p-6 sm:p-8">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.16em] text-brand-orange">
+                {label}
+              </p>
+              <h3 className="mt-3 text-2xl font-black leading-tight text-brand-navy sm:text-3xl">
+                {title}
+              </h3>
+            </div>
+            <span
+              className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-lg ${
+                isPassenger
+                  ? "bg-brand-orange text-brand-navy"
+                  : "bg-brand-navy text-brand-orange"
+              }`}
+            >
+              <Icon aria-hidden="true" className="h-6 w-6" />
+            </span>
+          </div>
           <p className="mt-3 text-base leading-7 text-slate-600">{text}</p>
-          <ul className="mt-6 grid gap-3 text-sm leading-6 text-slate-700">
+          <ul className="mt-6 grid gap-3 text-sm leading-6 text-slate-700 sm:grid-cols-2 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-1">
             {benefits.map((benefit) => (
               <li className="flex items-start gap-3" key={benefit}>
                 <Check aria-hidden="true" className="mt-0.5 h-5 w-5 shrink-0 text-brand-orange" />
@@ -124,19 +137,31 @@ function AppCard({
               </li>
             ))}
           </ul>
-          <AppDownloadButtons
-            appType={appType}
-            className="mt-7 sm:grid-cols-2"
-            location="download_section"
-          />
+          <div className="mt-auto pt-7">
+            <p className="text-xs font-black uppercase tracking-[0.14em] text-slate-400">
+              Descarga oficial
+            </p>
+            <AppDownloadButtons
+              appType={appType}
+              className="mt-2"
+              location="download_section"
+              tone="light"
+            />
+          </div>
         </div>
 
-        <div className="flex flex-col items-center justify-center gap-5">
+        <div
+          className={`flex flex-col items-center justify-center gap-5 border-t p-6 md:border-l md:border-t-0 lg:border-l-0 lg:border-t xl:border-l xl:border-t-0 ${
+            isPassenger
+              ? "border-brand-orange/15 bg-[#fff8ec]"
+              : "border-white/10 bg-brand-navy"
+          }`}
+        >
           <AppPreview variant={appType} />
-          <div className="hidden items-center gap-3 rounded-lg border border-slate-200 bg-white p-3 xl:flex">
+          <div className="hidden items-center gap-3 xl:flex">
             <Image
               alt={`Código QR para descargar ALEN GO - ${qrLabel}`}
-              className="h-20 w-20"
+              className="h-20 w-20 bg-white p-1"
               height={160}
               src={qr}
               width={160}
@@ -145,7 +170,11 @@ function AppCard({
               <p className="text-xs font-black uppercase tracking-[0.12em] text-brand-orange">
                 {qrLabel}
               </p>
-              <p className="mt-1 max-w-20 text-xs leading-4 text-slate-500">
+              <p
+                className={`mt-1 max-w-20 text-xs leading-4 ${
+                  isPassenger ? "text-slate-500" : "text-white/55"
+                }`}
+              >
                 Escanea y elige tu tienda.
               </p>
             </div>

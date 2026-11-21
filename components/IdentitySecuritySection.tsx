@@ -33,8 +33,8 @@ export function IdentitySecuritySection() {
             <SectionHeader
               eyebrow="Verificación y seguridad"
               inverse
-              text="Para fortalecer la seguridad de pasajeros y choferes, ALEN GO puede solicitar una verificación de identidad mediante un documento de identificación y una fotografía de verificación."
-              title="Tu identidad ayuda a proteger cada viaje"
+              text="Por seguridad de pasajeros y choferes, la app puede solicitar cédula y selfie con la cédula para validar identidad y ayudar a prevenir fraudes."
+              title="Verificación para mayor seguridad"
             />
             <p className="mt-5 max-w-3xl text-base leading-7 text-white/70">
               Esta información se utiliza para validar la identidad del titular, ayudar a prevenir

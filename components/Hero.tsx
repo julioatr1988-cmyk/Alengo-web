@@ -34,52 +34,57 @@ export function Hero() {
             <ShieldCheck className="h-4 w-4 text-brand-orange" />
             Plataforma de movilidad para Ecuador
           </div>
-          <h1 className="mt-7 max-w-4xl text-5xl font-black leading-[0.94] sm:text-6xl lg:text-7xl">
+          <h1 className="mt-7 max-w-4xl text-4xl font-black leading-[0.98] sm:text-6xl lg:text-7xl">
             Tu viaje comienza en ALEN GO
           </h1>
           <p className="mt-6 max-w-2xl text-lg leading-8 text-white/70 sm:text-xl">
             Reserva tu asiento, elige tu ruta y coordina tu viaje puerta a puerta desde tu celular.
           </p>
-          <div className="mt-9 grid max-w-3xl gap-3 sm:grid-cols-2">
-            <div className="rounded-lg bg-brand-orange p-4 text-brand-navy shadow-glow sm:p-5">
-              <p className="text-xs font-black uppercase tracking-[0.14em] opacity-60">
-                Para pasajeros
-              </p>
-              <h2 className="mt-1 text-xl font-black">Descargar ALEN GO</h2>
-              <AppDownloadButtons
-                appType="passenger"
-                className="mt-4"
-                location="hero"
-                tone="dark"
-              />
-            </div>
-            <div className="rounded-lg border border-white/20 bg-white/[0.08] p-4 shadow-2xl backdrop-blur sm:p-5">
-              <p className="text-xs font-black uppercase tracking-[0.14em] text-brand-orange">
-                Para conductores
-              </p>
-              <h2 className="mt-1 text-xl font-black text-white">Descargar ALEN GO Chofer</h2>
-              <AppDownloadButtons
-                appType="driver"
-                className="mt-4"
-                location="hero"
-                tone="light"
-              />
+          <div className="mt-9 max-w-3xl overflow-hidden rounded-lg border border-white/15 bg-white shadow-premium">
+            <div className="grid sm:grid-cols-2">
+              <div className="p-5 text-brand-navy sm:p-6">
+                <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-brand-orange">
+                  <span aria-hidden="true" className="h-px w-6 bg-brand-orange" />
+                  Pasajeros
+                </p>
+                <h2 className="mt-3 text-xl font-black">App para pasajeros</h2>
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Reserva rutas y coordina tu viaje desde tu celular.
+                </p>
+                <AppDownloadButtons
+                  appType="passenger"
+                  className="mt-4"
+                  compact
+                  location="hero"
+                  tone="light"
+                />
+              </div>
+              <div className="border-t border-white/10 bg-[#101d36] p-5 text-white sm:border-l sm:border-t-0 sm:p-6">
+                <p className="flex items-center gap-2 text-xs font-black uppercase tracking-[0.14em] text-brand-orange">
+                  <span aria-hidden="true" className="h-px w-6 bg-brand-orange" />
+                  Choferes
+                </p>
+                <h2 className="mt-3 text-xl font-black">App para choferes</h2>
+                <p className="mt-2 text-sm leading-6 text-white/65">
+                  Gestiona solicitudes, pasajeros y viajes asignados.
+                </p>
+                <AppDownloadButtons
+                  appType="driver"
+                  className="mt-4"
+                  compact
+                  location="hero"
+                  tone="outline"
+                />
+              </div>
             </div>
           </div>
 
-          <div className="mt-10 grid max-w-2xl grid-cols-3 border-y border-white/10 py-5">
-            {[
-              ["4", "rutas principales"],
-              ["App", "reservas digitales"],
-              ["EC", "operación local"]
-            ].map(([value, label]) => (
-              <div className="border-r border-white/10 px-4 first:pl-0 last:border-r-0" key={label}>
-                <p className="text-2xl font-black tracking-[-0.03em] text-white">{value}</p>
-                <p className="mt-1 text-xs font-bold uppercase tracking-[0.12em] text-white/50">
-                  {label}
-                </p>
-              </div>
-            ))}
+          <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-bold text-white/60">
+            <span className="inline-flex items-center gap-2">
+              <ShieldCheck aria-hidden="true" className="h-4 w-4 text-brand-orange" />
+              Enlaces oficiales de descarga
+            </span>
+            <span>Apps para pasajeros y choferes</span>
           </div>
         </div>
 
