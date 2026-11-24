@@ -2,13 +2,44 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { ArrowLeft, Menu, X } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { navItems } from "@/lib/site";
 import { ButtonLink } from "@/components/ButtonLink";
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+
+  if (pathname === "/registroexitoso") {
+    return (
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-navy/95 text-white backdrop-blur-xl">
+        <nav
+          aria-label="Navegación de confirmación"
+          className="mx-auto flex h-20 max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8"
+        >
+          <Link aria-label="ALEN GO inicio" className="flex items-center" href="/">
+            <Image
+              alt="ALEN GO"
+              className="h-auto w-36"
+              height={210}
+              priority
+              src="/assets/logo-horizontal-light.png"
+              width={1503}
+            />
+          </Link>
+          <Link
+            className="inline-flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-bold text-white/75 transition hover:bg-white/10 hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-orange"
+            href="/"
+          >
+            <ArrowLeft aria-hidden="true" className="h-4 w-4" />
+            Ir al inicio
+          </Link>
+        </nav>
+      </header>
+    );
+  }
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-brand-navy/95 text-white backdrop-blur-xl">

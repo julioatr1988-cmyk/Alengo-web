@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { AppDownloadButtons } from "@/components/AppDownloadButtons";
+import { FooterDownloadApps } from "@/components/FooterDownloadApps";
 import { contactItems, legalLinks, navItems } from "@/lib/site";
 
 export function Footer() {
@@ -29,26 +29,7 @@ export function Footer() {
             <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-brand-orange">
               Apps oficiales
             </h2>
-            <p className="mt-4 text-xs font-black uppercase tracking-[0.12em] text-white/45">
-              Pasajeros
-            </p>
-            <AppDownloadButtons
-              appType="passenger"
-              className="mt-2"
-              compact
-              location="footer"
-              tone="footer"
-            />
-            <p className="mt-5 text-xs font-black uppercase tracking-[0.12em] text-white/45">
-              Choferes
-            </p>
-            <AppDownloadButtons
-              appType="driver"
-              className="mt-2"
-              compact
-              location="footer"
-              tone="footer"
-            />
+            <FooterDownloadApps />
           </div>
           <div>
             <h2 className="text-sm font-bold uppercase tracking-[0.18em] text-brand-orange">
